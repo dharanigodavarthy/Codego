@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+input[type="file"] {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: #8BC34A;
+  font-size: 18px;
+  /* text-align: center; */
+  outline: none;
+}
+
+/* input[type="file"] :hover{
+  background-color: aqua;
+ 
+} */
+
+#p_wrap {
+  white-space: pre-line;
+}
+
+.container {
+  text-align: center;
+}
+
+#file-to-display {
+  text-align: initial;
+  margin-right: 20%;
+  text-align: initial;
+  margin-left: 25%;
+  border: 1px solid black;
+  box-sizing: border-box;
+  padding: 10px;
+  height: 400px;
+  overflow-y:scroll;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  height: 70px;
+  background-color: #63AA9C;
+  align-items: center;
+}
+
+nav>a {
+  text-decoration: none;
+  color: #3e3d3d;
+  font-size: 22px;
+    text-transform: capitalize;
+}
+nav>a:hover{
+  color: #c4cfd6;
+}
+
+.CodeMirror {
+  float: left;
+  width: 50%;
+  border: 1px solid black;
+}
