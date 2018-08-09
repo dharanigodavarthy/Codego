@@ -6,17 +6,7 @@ import { connect } from "react-redux";
 {/* <script src="../../public/codemirror/lib/codemirror.js"></script> */}
 // import { connect } from "../../public/script";
 class LintPage extends Component {
-  componentDidMount(){
-    console.log("in component");
-    // <script src="../../public/script"/>
-  //   CodeMirror.fromTextArea(document.getElementById("editor-js"),{
-  //     mode: "javascript",
-  //     lineNumbers: true,
-  //     lint: true,
-  //     gutters: ["CodeMirror-linenumbers","CodeMirror-foldgutter","CodeMirror-lint-markers"]
-      
-  // });
-  }
+ 
  render() {
   console.log("in linter")
    return (  

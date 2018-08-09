@@ -60,7 +60,7 @@ class SignIn extends React.Component{
         return( 
             <div className="SignIn">
 				<GoogleLogin
-			    clientId={'852497698741-p56pc68e4ui5kj7u08oo13u5qv02nc2g.apps.googleusercontent.com'}
+			    clientId={"2675592028-g4q79j6no4lhbsde526atf51pg5hurtv.apps.googleusercontent.com"}
 			    buttonText="Google"
 			    onSuccess={responseGoogle}
 			    onFailure={responseGoogle}/>

@@ -25,7 +25,7 @@ class LogOut extends React.Component {
 
   render() {
       if(this.state.redirect)
-      return <Redirect to ={"/Login"}/>
+      return <Redirect to ={"/"}/>
     return (
       <div>
         <button onClick={this.handleLogOut}>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import  Prettifier from "./prettifyPage";
+import  Prettifier from "./PrettifyPage";
 // import React.FileReader from "react-file-reader";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -33,7 +33,7 @@ class ImportPage extends Component {
   render() {
 
     if(!localStorage.getItem("userData"))
-    return <Redirect to={"/Login"}/>
+    return <Redirect to={"/"}/>
     return (
 
       <div className="container">

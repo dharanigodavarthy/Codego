@@ -1,15 +1,12 @@
 import React from "react";
-// import BrowserHistory from 'react-router-dom';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import  ImportPage from "./components/importPage";
-import  Prettifier from "./components/prettifyPage";
+import  ImportPage from "./components/ImportPage";
+import  Prettifier from "./components/PrettifyPage";
 import UserFile from './components/UserFile'
-import Lint from './components/lintPage'
+import Lint from './components/LintPage'
 import Login from './components/Login'
-// import HomePage from "./components/HomePage";
-// import blogs from "./components/blogs";
-// import blogPage from "./components/blogPage";
-// import ErrorPage from "./components/error";
+import PageNotFound from "./components/PageNotFound";
+
 export default () => (
   <BrowserRouter>
     <Switch>
@@ -17,12 +14,8 @@ export default () => (
       <Route path="/prettify" exact component={Prettifier} />
       <Route path="/userScript" exact component={UserFile} />
       <Route path="/lint" exact component={Lint} />
-      <Route path="/Login" exact component={Login} />
-      {/* <Route path="/home" exact component={HomePage} />
-      <Route path="/blogs" exact component={blogs} />
-      <Route path="/create/:id" exact component={blogInput} />
-      <Route path="/blog/:id" exact component={blogPage} />
-      <Route component={ErrorPage} /> */}
+      <Route path="/" exact component={Login} />
+      <Route component={PageNotFound} /> 
     </Switch>
   </BrowserRouter>
 );
