@@ -4,17 +4,20 @@ import  Prettifier from "./PrettifyPage";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import LogOut from "./LogOut";
 import * as fileActions from "../actions/fileActions";
 import { Redirect } from "react-router-dom";
-// import Headers from "./Header";
+
 import { Link} from "react-router-dom";
+import ToolBar from "./ToolBar/ToolBar";
+import SideBar from "./SideBar/SideBar"
+import BackDrop from "./backdrop/BackDrop"
 class ImportPage extends Component {
   static fileReader = "";
   constructor(props) {
     super(props);
     this.state = {
-      uploadedFile: ""
+      uploadedFile: "",
+      sideBarOpen:false
     };
 
   }
@@ -30,16 +33,29 @@ class ImportPage extends Component {
     ImportPage.fileReader.onloadend = this.handleFileRead;
     ImportPage.fileReader.readAsText(file);
   };
+  toggleSideBar=()=>{
+    this.setState((prevState)=>{
+      return {sideBarOpen: !prevState.sideBarOpen}
+    })
+  }
+  backDropClickHandler=()=>{
+    this.setState({sideBarOpen:false})
+  }
   render() {
-
+    let backdrop;
+    if(this.state.sideBarOpen){
+      backdrop=<BackDrop click={this.backDropClickHandler}/>;
+    }
     if(!localStorage.getItem("userData"))
     return <Redirect to={"/"}/>
     return (
 
       <div className="container">
-        {/* <Headers /> */}
-        <LogOut/>
-        <h1> Codego </h1>
+      {/* <div style={{height:"100%"}}/> */}
+        <ToolBar sideBarClickHandler={this.toggleSideBar} />
+        <SideBar show={this.state.sideBarOpen}/>
+        {backdrop}
+        <h1> Codigo </h1>
         <h2> Upload a file in Codego( Linting app )</h2>
         <input
           type="file"

@@ -4,7 +4,7 @@ import  ImportPage from "./components/ImportPage";
 import  Prettifier from "./components/PrettifyPage";
 import UserFile from './components/UserFile'
 import Lint from './components/LintPage'
-import Login from './components/Login'
+import Login from './components/login/Login'
 import PageNotFound from "./components/PageNotFound";
 
 export default () => (

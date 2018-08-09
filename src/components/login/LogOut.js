@@ -12,12 +12,6 @@ class LogOut extends React.Component {
 			redirect: false
 		};
 	}
-	// componentDidMount(){
-	// 	let data = JSON.parse(localStorage.getItem('userData'));
-	// 	if(data!= null)
-	// 		this.setState({name: data.name})
-	// }
-
   handleLogOut = () => {
     localStorage.clear();
     this.setState({redirect:true});
