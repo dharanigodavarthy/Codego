@@ -7,7 +7,6 @@ const Header = () => {
       <Link to="/userScript">User script</Link>
       <Link to="/prettify">prettify code</Link>
       <Link to="/lint">Linter</Link>
-      {/* <Link to="/blogs">blogs</Link> */}
     </nav>
   );
 };

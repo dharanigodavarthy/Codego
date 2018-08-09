@@ -4,7 +4,9 @@ import  Prettifier from "./prettifyPage";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import LogOut from "./LogOut";
 import * as fileActions from "../actions/fileActions";
+import { Redirect } from "react-router-dom";
 // import Headers from "./Header";
 import { Link} from "react-router-dom";
 class ImportPage extends Component {
@@ -29,9 +31,14 @@ class ImportPage extends Component {
     ImportPage.fileReader.readAsText(file);
   };
   render() {
+
+    if(!localStorage.getItem("userData"))
+    return <Redirect to={"/Login"}/>
     return (
+
       <div className="container">
         {/* <Headers /> */}
+        <LogOut/>
         <h1> Codego </h1>
         <h2> Upload a file in Codego( Linting app )</h2>
         <input
