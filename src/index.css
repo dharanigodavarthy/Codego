@@ -1,18 +1,14 @@
-
-
 @media only screen and (max-width: 1024px) {
   body {
     color: #e6e6e6;
     height: 100%;
     margin: 0;
-    /* background: linear-gradient(#544a7d, #ffd452); */
     background-image: url("./assets/images/background-image.png");
     background-size: 100%;
     background-attachment: fixed;
     background-repeat: no-repeat;
     font-family: "Comfortaa", cursive;
   }
-
 
   .login-div {
     margin: 30px;
@@ -21,6 +17,7 @@
 
   .login-div > h1 {
     font-size: 40px;
+    text-transform: uppercase;
   }
 
   .user-login-div {
@@ -115,5 +112,22 @@
     outline: none;
     border: none;
     border-radius: 2px;
+  }
+
+  .logout-button {
+    padding: 0;
+    background-color: Transparent;
+    color: #521751;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+  }
+
+  .page-not-found-div {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
   }
 }

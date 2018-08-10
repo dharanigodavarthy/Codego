@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import Beautify from 'js-beautify';
+import React, { Component } from "react";
+import Beautify from "js-beautify";
 import Headers from "./Header";
-// import { render } from 'react-dom';
-import { UnControlled as CodeMirror } from 'react-codemirror2';
+import { render } from "react-dom";
+import { UnControlled as CodeMirror } from "react-codemirror2";
+
 import { connect } from "react-redux";
 
-import 'codemirror/lib/codemirror.css';
-require('codemirror/theme/dracula.css');
-require('codemirror/lib/codemirror.js');
-require('codemirror/mode/javascript/javascript.js');
-require('codemirror/mode/css/css.js');
-require('codemirror/addon/edit/closetag.js');
-require('codemirror/addon/edit/matchbrackets.js');
-require('codemirror/addon/fold/foldgutter.js');
-require('codemirror/mode/htmlmixed/htmlmixed.js');
+import "codemirror/lib/codemirror.css";
+require("codemirror/theme/dracula.css");
+require("codemirror/lib/codemirror.js");
+require("codemirror/mode/javascript/javascript.js");
+require("codemirror/mode/css/css.js");
+require("codemirror/addon/edit/closetag.js");
+require("codemirror/addon/edit/matchbrackets.js");
+require("codemirror/addon/fold/foldgutter.js");
+require("codemirror/mode/htmlmixed/htmlmixed.js");
 //  beautify_html = Beautify.html_beautify,
 //  beautify_css = Beautify.css_beautify;
-
 
 const beautify_js = Beautify.js_beautify,
   beautify_html = Beautify.html_beautify,
@@ -31,7 +31,7 @@ opts.brace_preserve_inline = true;
 opts.keep_array_indentation = true;
 opts.break_chained_methods = true;
 opts.indent_scripts = "normal";
-opts.brace_style = "collapse";//;preserve-inline
+opts.brace_style = "collapse"; //;preserve-inline
 opts.space_before_conditional = true;
 opts.unescape_strings = true;
 opts.jslint_happy = true;
@@ -45,8 +45,8 @@ opts.e4x = true;
 // opts.indent_size = 2;
 // opts.space_in_empty_paren = true;
 
-
 class PrettifyPage extends Component {
+
   downloadFile=()=>{
     // var link = document.createElement("a");
     // link.download = "prettier.js";
@@ -86,12 +86,9 @@ class PrettifyPage extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    return {
-      file: state.file
-    };
-  }
+  return {
+    file: state.file
+  };
+}
 
-
-  export default connect(
-    mapStateToProps
-  )(PrettifyPage);
+export default connect(mapStateToProps)(PrettifyPage);

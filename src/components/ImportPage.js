@@ -61,13 +61,16 @@ class ImportPage extends Component {
     if (this.state.sideBarOpen) {
       backdrop = <BackDrop click={this.backDropClickHandler} />;
     }
-    if (!localStorage.getItem("userData")) return <Redirect to={"/"} />;
+    // if (!localStorage.getItem("userData")) return <Redirect to={"/"} />;
     return (
       <div className="container">
-        {/* <div style={{height:"100%"}}/> */}{" "}
-        <ToolBar sideBarClickHandler={this.toggleSideBar} />{" "}
-        <SideBar show={this.state.sideBarOpen} /> {backdrop} <h1> Codigo </h1>{" "}
-        <h2> Upload a file in Codego(Linting app) </h2>{" "}
+        {/* <div style={{height:"100%"}}/> */}
+        <ToolBar sideBarClickHandler={this.toggleSideBar} />
+        <SideBar show={this.state.sideBarOpen} />
+        {backdrop}
+        <h1>use codigo to prettify your code</h1>
+        <h2>upload file here</h2>
+
         <input
           type="file"
           id="file"
