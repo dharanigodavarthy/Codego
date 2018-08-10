@@ -14,11 +14,16 @@
 //     };
 //   }
 
-  export function storeJSFile(script) {
-    localStorage.setItem("data",script);
+  export function storeJSFile(data,fileName) {
+    localStorage.setItem("data",data);
+    localStorage.setItem("fileName",fileName);
+    console.log(fileName);
     return {
       type: "ADD_FILE",
-      script
+      fileData:{
+        data,
+        fileName
+      }
     }
     
   }

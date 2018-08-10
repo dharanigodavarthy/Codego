@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import Beautify from "js-beautify";
 import Headers from "./Header";
 import { render } from "react-dom";
-import 'react-notifications/lib/notifications.css';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import "react-notifications/lib/notifications.css";
+import {
+  NotificationContainer,
+  NotificationManager
+} from "react-notifications";
 import { UnControlled as CodeMirror } from "react-codemirror2";
 
 import { connect } from "react-redux";
@@ -49,23 +52,30 @@ opts.e4x = true;
 
 class PrettifyPage extends Component {
   downloadFile = () => {
+    const fileName = this.props.file.fileName;
     var element = document.createElement("a");
     element.setAttribute(
       "href",
       "data:text/plain;charset=utf-8," +
-        encodeURIComponent(beautify_js(this.props.file, opts))
+        encodeURIComponent(beautify_js(this.props.file.data, opts))
     );
-    element.setAttribute("download", "prettier.js");
+    if (fileName.endsWith(".html"))
+      element.setAttribute("download", "prettier.html");
+    else if (fileName.endsWith(".css"))
+      element.setAttribute("download", "prettier.css");
+    else if (fileName.endsWith(".js"))
+      element.setAttribute("download", "prettier.js");
+    else element.setAttribute("download", "prettier.text");
     element.click();
   };
   copyToClipBoard = () => {
     var textField = document.createElement("textarea");
-    textField.innerText = this.props.file;
+    textField.innerText = this.props.file.data;
     document.body.appendChild(textField);
     textField.select();
     document.execCommand("copy");
     textField.remove();
-    NotificationManager.info('data copied to clip board');
+    NotificationManager.info("data copied to clip board");
     // alert("data copied to clip board")
   };
   render() {
@@ -76,10 +86,40 @@ class PrettifyPage extends Component {
       <div className="App">
         <Headers />
         <h1>Prettify code</h1>
-        {this.props.file.length !== 0 ? (
+        {this.props.file.fileName.endsWith(".html") ? (
           <CodeMirror
             className="codemirror-text"
-            value={beautify_js(this.props.file, opts)}
+            value={beautify_html(this.props.file.data, opts)}
+            options={{
+              mode: "text/html",
+              theme: "dracula",
+              lineNumbers: true,
+              readOnly: true, //for read only
+              lineWrapping: true
+            }}
+          />
+        ) : (
+          ""
+        )}
+        {this.props.file.fileName.endsWith(".css") ? (
+          <CodeMirror
+            className="codemirror-text"
+            value={beautify_css(this.props.file.data, opts)}
+            options={{
+              mode: "css",
+              theme: "dracula",
+              lineNumbers: true,
+              readOnly: true, //for read only
+              lineWrapping: true
+            }}
+          />
+        ) : (
+          ""
+        )}
+        {this.props.file.fileName.endsWith(".js") ? (
+          <CodeMirror
+            className="codemirror-text"
+            value={beautify_js(this.props.file.data, opts)}
             options={{
               mode: "javascript",
               theme: "dracula",
@@ -92,11 +132,8 @@ class PrettifyPage extends Component {
           ""
         )}
         <button onClick={this.downloadFile}>Download file</button>
-        <button onClick={this.copyToClipBoard}>
-          <span className="tooltiptext" id="myTooltip" />
-          copy file
-        </button>
-        <NotificationContainer/>
+        <button onClick={this.copyToClipBoard}>copy file</button>
+        <NotificationContainer />
       </div>
     );
   }

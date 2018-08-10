@@ -12,12 +12,14 @@ import SideBar from "./SideBar/SideBar";
 import BackDrop from "./backdrop/BackDrop";
 class ImportPage extends Component {
   static fileReader = "";
+  static userFileName=""
   constructor(props) {
     super(props);
     this.state = {
       uploadedFile: "",
       sideBarOpen: false,
-      errorStatus: ""
+      errorStatus: "",
+      fileName:""
     };
   }
   componentDidMount(){
@@ -25,7 +27,7 @@ class ImportPage extends Component {
   }
   handleFileRead = e => {
     const content = ImportPage.fileReader.result;
-    this.props.actions.storeJSFile(content);
+    this.props.actions.storeJSFile(content,ImportPage.userFileName);
     this.setState({
       uploadedFile: content,
       errorStatus: ""
@@ -34,13 +36,14 @@ class ImportPage extends Component {
 
   handleFileChoosen = file => {
     let typeOfFile = file.name.toLowerCase();
+    ImportPage.userFileName=typeOfFile;
     if (typeOfFile.endsWith(".js")) typeOfFile = "js";
     else if (typeOfFile.endsWith(".html")) typeOfFile = "html";
     else if (typeOfFile.endsWith(".css")) typeOfFile = "css";
     if (typeOfFile !== file.name.toLowerCase()) {
       ImportPage.fileReader = new FileReader();
       ImportPage.fileReader.onloadend = this.handleFileRead;
-      ImportPage.fileReader.readAsText(file);
+      ImportPage.fileReader.readAsText(file,file.name.toLowerCase());
     } else {
       this.setState({
         errorStatus: "Oop's, codigo wont support files ends with "+typeOfFile.substr(typeOfFile.lastIndexOf("."))
