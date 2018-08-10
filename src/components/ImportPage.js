@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -46,7 +45,9 @@ class ImportPage extends Component {
       ImportPage.fileReader.readAsText(file,file.name.toLowerCase());
     } else {
       this.setState({
-        errorStatus: "Oop's, codigo wont support files ends with "+typeOfFile.substr(typeOfFile.lastIndexOf("."))
+        errorStatus:
+          "Oop's, codigo wont support files ends with " +
+          typeOfFile.substr(typeOfFile.lastIndexOf("."))
       });
     }
   };
@@ -69,38 +70,45 @@ class ImportPage extends Component {
     }
     // if (!localStorage.getItem("userData")) return <Redirect to={"/"} />;
     return (
-      <div className="container">
-        {/* <div style={{height:"100%"}}/> */}
+      <div className="home-div">
         <ToolBar sideBarClickHandler={this.toggleSideBar} />
         <SideBar show={this.state.sideBarOpen} />
         {backdrop}
         <h1>use codigo to prettify your code</h1>
-        <h2>upload file here</h2>
-
-        <input
-          type="file"
-          id="file"
-          className="input-file"
-          accept=".js"
-          onChange={e => this.handleFileChoosen(e.target.files[0])}
-        />{" "}
-        <p id="p_wrap" />{" "}
-        {this.state.uploadedFile ? (
-          ""
-        ) : (
-          <div id="banner">
-            <h2> Codigo, a app to prettify / Beautify code </h2>{" "}
-            <h3> see linting error from anywhere </h3>{" "}
+        <div className="home-body-div">
+          <div className="card-div">
+            <p id="p_wrap" />{" "}
+            {this.state.uploadedFile ? (
+              ""
+            ) : (
+              <div id="banner">
+                <h3>choose a file to prettify</h3>
+              </div>
+            )}
+            <div className="import-btn-wrapper">
+              <input
+                type="file"
+                id="file"
+                className="input-file"
+                accept=".js"
+                onChange={e => this.handleFileChoosen(e.target.files[0])}
+              />{" "}
+              <button class="btn">Import File</button>
+            </div>
+            <div className="prettify-div">
+              {this.state.uploadedFile ? (
+                <Link to="/prettify" className="prettify-link">
+                  Prettify Code{" "}
+                </Link>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="error-div">
+              {this.state.errorStatus ? this.state.errorStatus : ""}
+            </div>
           </div>
-        )}{" "}
-        {this.state.uploadedFile ? (
-          <Link to="/prettify" className="prettify-link">
-            Prettify Code{" "}
-          </Link>
-        ) : (
-          ""
-        )}
-        {this.state.errorStatus?this.state.errorStatus:""}
+        </div>
       </div>
     );
   }
@@ -125,6 +133,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ImportPage);
-
-
-
