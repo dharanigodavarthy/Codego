@@ -11,6 +11,17 @@ class LintPage extends Component {
      <div className="App">
      <Headers/>
         <textarea id="editor-js">var id=88</textarea>
+        {/* {this.props.file.length!==0?
+         <CodeMirror
+         className="codemirror-text"
+         value={beautify_js(this.props.file,opts)}
+         options={{
+           mode: 'javascript',
+           theme: 'dracula',
+           lineNumbers: true,
+           readOnly: true, //for read only
+         }}
+       />:""} */}
      </div>
    );
  }
