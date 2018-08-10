@@ -23,18 +23,21 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login-div">
+        <h1>codigo</h1>
         <section className="login-section">
-          <div className="SignIn">
-            <div>{this.renderRedirect()}</div>
-            <SignIn />
-          </div>
           <div className="SignUp">
             <SignUp />
           </div>
         </section>
-        <button className="signupbutton" onClick={this.setRedirect}>
-          Sign Up
-        </button>
+        <div>
+          <div>{this.renderRedirect()}</div>
+          <SignIn />
+        </div>
+        <div>
+          <button className="signup-button" onClick={this.setRedirect}>
+            Sign Up
+          </button>
+        </div>
       </div>
     );
   }
