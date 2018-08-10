@@ -15,10 +15,18 @@
 //   }
 
   export function storeJSFile(script) {
+    localStorage.setItem("data",script);
     return {
       type: "ADD_FILE",
       script
     }
     
   }
+  // export function clearLocalStorage() {
+  //   localStorage.clear()
+  //   return {
+  //     type: "CLEAR_LOCAL_STORAGE"
+  //   }
+    
+  // }
   

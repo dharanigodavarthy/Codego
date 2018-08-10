@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Beautify from "js-beautify";
 import Headers from "./Header";
 import { render } from "react-dom";
+import 'react-notifications/lib/notifications.css';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 import { UnControlled as CodeMirror } from "react-codemirror2";
 
 import { connect } from "react-redux";
@@ -46,43 +48,58 @@ opts.e4x = true;
 // opts.space_in_empty_paren = true;
 
 class PrettifyPage extends Component {
-
-  downloadFile=()=>{
-    // var link = document.createElement("a");
-    // link.download = "prettier.js";
-    // link.href = uri;
-    // link.click();
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(beautify_js(this.props.file,opts)));
-    element.setAttribute('download', "prettier.js");
+  downloadFile = () => {
+    var element = document.createElement("a");
+    element.setAttribute(
+      "href",
+      "data:text/plain;charset=utf-8," +
+        encodeURIComponent(beautify_js(this.props.file, opts))
+    );
+    element.setAttribute("download", "prettier.js");
     element.click();
-  }
- render() {
-  
-  let options = {
-    lineNumbers: true,
   };
-   return (
-       
-     <div className="App">
-     <Headers/>
+  copyToClipBoard = () => {
+    var textField = document.createElement("textarea");
+    textField.innerText = this.props.file;
+    document.body.appendChild(textField);
+    textField.select();
+    document.execCommand("copy");
+    textField.remove();
+    NotificationManager.info('data copied to clip board');
+    // alert("data copied to clip board")
+  };
+  render() {
+    let options = {
+      lineNumbers: true
+    };
+    return (
+      <div className="App">
+        <Headers />
         <h1>Prettify code</h1>
-        {this.props.file.length!==0?
-         <CodeMirror
-         className="codemirror-text"
-         value={beautify_js(this.props.file,opts)}
-         options={{
-           mode: 'javascript',
-           theme: 'dracula',
-           lineNumbers: true,
-           readOnly: true, //for read only
-           lineWrapping: true
-         }}
-       />:""}
-       <button onClick={this.downloadFile}>Download file</button>
-     </div>
-   );
- }
+        {this.props.file.length !== 0 ? (
+          <CodeMirror
+            className="codemirror-text"
+            value={beautify_js(this.props.file, opts)}
+            options={{
+              mode: "javascript",
+              theme: "dracula",
+              lineNumbers: true,
+              readOnly: true, //for read only
+              lineWrapping: true
+            }}
+          />
+        ) : (
+          ""
+        )}
+        <button onClick={this.downloadFile}>Download file</button>
+        <button onClick={this.copyToClipBoard}>
+          <span className="tooltiptext" id="myTooltip" />
+          copy file
+        </button>
+        <NotificationContainer/>
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state, ownProps) {

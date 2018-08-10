@@ -20,6 +20,9 @@ class ImportPage extends Component {
       errorStatus: ""
     };
   }
+  componentDidMount(){
+    localStorage.clear()
+  }
   handleFileRead = e => {
     const content = ImportPage.fileReader.result;
     this.props.actions.storeJSFile(content);
