@@ -25,6 +25,8 @@ class ImportPage extends Component {
   };
 
   handleFileChoosen = file => {
+    let typeOfFile=file.name.toLowerCase();
+    console.log(typeOfFile,typeOfFile.endsWith(".js")||typeOfFile.endsWith(".html")||typeOfFile.endsWith(".css"));
     ImportPage.fileReader = new FileReader();
     ImportPage.fileReader.onloadend = this.handleFileRead;
     ImportPage.fileReader.readAsText(file);
