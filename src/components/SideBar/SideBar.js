@@ -14,7 +14,7 @@ const sideBar = props => {
           <Link to="/About">About</Link>
         </li>
         <li>
-          <LogOut />
+          <LogOut className="nav_bar-logout" />
         </li>
       </ul>
     </nav>

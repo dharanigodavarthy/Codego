@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import google from '../images/google-plus.svg';
 // import facebook from '../images/facebook.svg';
 // import '../css/login.css';
 import GoogleLogin from 'react-google-login';
 import {Redirect} from 'react-router-dom';
-import FacebookLogin from 'react-facebook-login';
+// import FacebookLogin from 'react-facebook-login';
 
 class SignIn extends React.Component{
     constructor(props) {

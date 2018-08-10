@@ -9,23 +9,25 @@ body {
   text-align: center;
   height: 100%;
 }
-html{
+/* html{
   height: 100%;
+} */
+
+ input::-webkit-file-upload-button{
+  background: transparent;
+  width: 100px;
+  height: 40px;
+  border: none;
+  outline: none;
+  border: 1.5px solid black;
+  color: black;
+  font-weight: bold;
+  border-radius: 8px;
 }
 
-input[type="file"] {
-  box-sizing: border-box;
-  padding: 10px;
-  background-color: #8BC34A;
-  font-size: 18px;
-  /* text-align: center; */
+input[type="file"] :focus{
   outline: none;
 }
-
-/* input[type="file"] :hover{
-  background-color: aqua;
- 
-} */
 
 #p_wrap {
   white-space: pre-line;
@@ -47,7 +49,7 @@ input[type="file"] {
   overflow-y: scroll;
 }
 
-/* nav {
+.nav-header {
   display: flex;
   justify-content: space-around;
   height: 70px;
@@ -55,23 +57,31 @@ input[type="file"] {
   align-items: center;
 }
 
-nav>a {
+.nav-header>a {
   text-decoration: none;
   color: #3e3d3d;
   font-size: 22px;
   text-transform: capitalize;
 }
 
-nav>a:hover {
+.nav-header>a:hover {
   color: #c4cfd6;
-} */
+}
+
+.prettify-link{
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+}
 
 .CodeMirror {
   float: left;
   width: 50%;
   border: 1px solid black;
 }
-
+.page-not-found{
+  margin-top:15%;
+}
 @media all and (min-width: 480px) {
   .Login {
     padding: 60px 0;

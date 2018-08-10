@@ -3,12 +3,10 @@ import React, { Component } from 'react';
 import Headers from "./Header";
 import { connect } from "react-redux";
 // import CodeMirror from '../codemirror/lib/codemirror';
-{/* <script src="../../public/codemirror/lib/codemirror.js"></script> */}
 // import { connect } from "../../public/script";
 class LintPage extends Component {
  
  render() {
-  console.log("in linter")
    return (  
      <div className="App">
      <Headers/>
