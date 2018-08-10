@@ -22,7 +22,7 @@ class LogOut extends React.Component {
       return <Redirect to ={"/"}/>
     return (
       <div>
-        <button className="nav_bar-logout" onClick={this.handleLogOut}>
+        <button className="logout-button" onClick={this.handleLogOut}>
           LogOut
         </button>
       </div>
