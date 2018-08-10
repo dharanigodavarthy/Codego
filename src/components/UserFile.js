@@ -16,7 +16,6 @@ class UserFile extends Component {
    return (
      <div className="App">
      <Headers/>
-        <h1>User code</h1>
        {/* {this.props.file.data?<pre id="file-to-display">{this.props.file.data}</pre>:""} */}
        {this.props.file.data.length!==0?
          <CodeMirror
