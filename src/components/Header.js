@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <nav className="nav-header">
-      <div>
+      <div className="home-link-div">
         <Link to="/import">Home</Link>
       </div>
-      <div>
-        <Link to="/userScript">User script</Link>
+      <div className="usercode-link-div">
+        <Link to="/userScript">UserCode</Link>
       </div>
-      <div>
-        <Link to="/prettify">prettify code</Link>
+      <div className="prettify-link-div">
+        <Link to="/prettify">PrettifiedCode</Link>
       </div>
     </nav>
   );

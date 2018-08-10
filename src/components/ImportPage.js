@@ -11,22 +11,22 @@ import SideBar from "./SideBar/SideBar";
 import BackDrop from "./backdrop/BackDrop";
 class ImportPage extends Component {
   static fileReader = "";
-  static userFileName=""
+  static userFileName = "";
   constructor(props) {
     super(props);
     this.state = {
       uploadedFile: "",
       sideBarOpen: false,
       errorStatus: "",
-      fileName:""
+      fileName: ""
     };
   }
-  componentDidMount(){
-    localStorage.clear()
+  componentDidMount() {
+    localStorage.clear();
   }
   handleFileRead = e => {
     const content = ImportPage.fileReader.result;
-    this.props.actions.storeJSFile(content,ImportPage.userFileName);
+    this.props.actions.storeJSFile(content, ImportPage.userFileName);
     this.setState({
       uploadedFile: content,
       errorStatus: ""
@@ -35,14 +35,14 @@ class ImportPage extends Component {
 
   handleFileChoosen = file => {
     let typeOfFile = file.name.toLowerCase();
-    ImportPage.userFileName=typeOfFile;
+    ImportPage.userFileName = typeOfFile;
     if (typeOfFile.endsWith(".js")) typeOfFile = "js";
     else if (typeOfFile.endsWith(".html")) typeOfFile = "html";
     else if (typeOfFile.endsWith(".css")) typeOfFile = "css";
     if (typeOfFile !== file.name.toLowerCase()) {
       ImportPage.fileReader = new FileReader();
       ImportPage.fileReader.onloadend = this.handleFileRead;
-      ImportPage.fileReader.readAsText(file,file.name.toLowerCase());
+      ImportPage.fileReader.readAsText(file, file.name.toLowerCase());
     } else {
       this.setState({
         errorStatus:
@@ -93,7 +93,7 @@ class ImportPage extends Component {
                 accept=".js"
                 onChange={e => this.handleFileChoosen(e.target.files[0])}
               />{" "}
-              <button class="btn">Import File</button>
+              <button className="btn">Import File</button>
             </div>
             <div className="prettify-div">
               {this.state.uploadedFile ? (

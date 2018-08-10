@@ -83,56 +83,64 @@ class PrettifyPage extends Component {
       lineNumbers: true
     };
     return (
-      <div className="App">
+      <div className="Prettified-div">
         <Headers />
-        <h1>Prettify code</h1>
-        {this.props.file.fileName.endsWith(".html") ? (
-          <CodeMirror
-            className="codemirror-text"
-            value={beautify_html(this.props.file.data, opts)}
-            options={{
-              mode: "text/html",
-              theme: "dracula",
-              lineNumbers: true,
-              readOnly: true, //for read only
-              lineWrapping: true
-            }}
-          />
-        ) : (
-          ""
-        )}
-        {this.props.file.fileName.endsWith(".css") ? (
-          <CodeMirror
-            className="codemirror-text"
-            value={beautify_css(this.props.file.data, opts)}
-            options={{
-              mode: "css",
-              theme: "dracula",
-              lineNumbers: true,
-              readOnly: true, //for read only
-              lineWrapping: true
-            }}
-          />
-        ) : (
-          ""
-        )}
-        {this.props.file.fileName.endsWith(".js") ? (
-          <CodeMirror
-            className="codemirror-text"
-            value={beautify_js(this.props.file.data, opts)}
-            options={{
-              mode: "javascript",
-              theme: "dracula",
-              lineNumbers: true,
-              readOnly: true, //for read only
-              lineWrapping: true
-            }}
-          />
-        ) : (
-          ""
-        )}
-        <button onClick={this.downloadFile}>Download file</button>
-        <button onClick={this.copyToClipBoard}>copy file</button>
+        <div>
+          {" "}
+          {this.props.file.fileName.endsWith(".html") ? (
+            <CodeMirror
+              className="codemirror-text"
+              value={beautify_html(this.props.file.data, opts)}
+              options={{
+                mode: "text/html",
+                theme: "dracula",
+                lineNumbers: true,
+                readOnly: true, //for read only
+                lineWrapping: true
+              }}
+            />
+          ) : (
+            ""
+          )}
+          {this.props.file.fileName.endsWith(".css") ? (
+            <CodeMirror
+              className="codemirror-text"
+              value={beautify_css(this.props.file.data, opts)}
+              options={{
+                mode: "css",
+                theme: "dracula",
+                lineNumbers: true,
+                readOnly: true, //for read only
+                lineWrapping: true
+              }}
+            />
+          ) : (
+            ""
+          )}
+          {this.props.file.fileName.endsWith(".js") ? (
+            <CodeMirror
+              className="codemirror-text"
+              value={beautify_js(this.props.file.data, opts)}
+              options={{
+                mode: "javascript",
+                theme: "dracula",
+                lineNumbers: true,
+                readOnly: true, //for read only
+                lineWrapping: true
+              }}
+            />
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="prettified-button">
+          <div>
+            <button onClick={this.downloadFile}>Download file</button>
+          </div>
+          <div>
+            <button onClick={this.copyToClipBoard}>copy file</button>
+          </div>
+        </div>
         <NotificationContainer />
       </div>
     );

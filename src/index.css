@@ -190,10 +190,47 @@
     color: #0099cc;
   }
 
-  .prettify-div a{
+  .prettify-div a {
     background-color: #3e8e41;
-    padding:5px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 8px 20px;
     border: none;
     border-radius: 8px;
+  }
+
+  .nav-header {
+    display: flex;
+    font-size: 20;
+  }
+
+  .nav-header div {
+    background-color: rgb(100, 99, 99);
+    padding: 10px;
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .nav-header a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+  }
+
+  .prettified-button {
+    display: flex;
+    font-size: 20;
+  }
+  .prettified-button button {
+    flex: 1;
+    background-color: rgb(116, 166, 212);
+    margin-top: 5px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
   }
 }
