@@ -1,97 +1,116 @@
-body {
-  height: 100%;
-  /* background-repeat: no-repeat;
-  background-attachment: fixed;
-  background: linear-gradient(#2c3e50, #4ca1af); */
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  text-align: center;
-  height: 100%;
-}
-/* html{
-  height: 100%;
-} */
-
- input::-webkit-file-upload-button{
-  background: transparent;
-  width: 100px;
-  height: 40px;
-  border: none;
-  outline: none;
-  border: 1.5px solid black;
-  color: black;
-  font-weight: bold;
-  border-radius: 8px;
-}
-
-input[type="file"] :focus{
-  outline: none;
-}
-
-#p_wrap {
-  white-space: pre-line;
-}
-
-.container {
-  text-align: center;
-}
-
-#file-to-display {
-  text-align: initial;
-  margin-right: 20%;
-  text-align: initial;
-  margin-left: 25%;
-  border: 1px solid black;
-  box-sizing: border-box;
-  padding: 10px;
-  height: 400px;
-  overflow-y: scroll;
-}
-
-.nav-header {
-  display: flex;
-  justify-content: space-around;
-  height: 70px;
-  background-color: #63AA9C;
-  align-items: center;
-}
-
-.nav-header>a {
-  text-decoration: none;
-  color: #3e3d3d;
-  font-size: 22px;
-  text-transform: capitalize;
-}
-
-.nav-header>a:hover {
-  color: #c4cfd6;
-}
-
-.prettify-link{
-  color: black;
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-.CodeMirror {
-  float: left;
-  width: 50%;
-  border: 1px solid black;
-}
-.page-not-found{
-  margin-top:15%;
-}
-@media all and (min-width: 480px) {
-  .Login {
-    padding: 60px 0;
+@media only screen and (max-width: 1024px) {
+  body {
+    color: #e6e6e6;
+    height: 100%;
+    margin: 0;
+    /* background: linear-gradient(#544a7d, #ffd452); */
+    background-image: url("./assets/images/background-image.png");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: "Comfortaa", cursive;
   }
-  .Login form {
-    margin: 0 auto;
-    max-width: 320px;
-  }
-  .login-div {}
-  .login-section {
+
+  .login-div {
     margin: 30px;
+    text-align: center;
+  }
+
+  .login-div > h1 {
+    font-size: 40px;
+  }
+
+  .user-login-div {
+    margin: 20px;
+    padding: 20px;
+  }
+  .input-div {
+    display: grid;
+    justify-items: center;
+  }
+  .styled-input > input:focus ~ label,
+  .styled-input > input:valid ~ label {
+    font-size: 0.75em;
+    color: #ffffff;
+    top: -2.25rem;
+    transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+  }
+
+  .styled-input {
+    float: left;
+    width: 75%;
+    margin: 2rem 0 1rem;
+    position: relative;
+  }
+  .styled-input label {
+    color: #e6e6e6;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.25s cubic-bezier(0.2, 0, 0.03, 1);
+    pointer-events: none;
+  }
+
+  .styled-input > input {
+    background-color: transparent;
+    padding: 1rem 0rem;
+    border: none;
+    color: white;
+    border-bottom: 2px solid white;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 1rem;
+  }
+  .styled-input > input ~ span {
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #8e44ad;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+  }
+  .styled-input > input:focus {
+    outline: 0;
+  }
+  .styled-input > input:focus ~ span {
+    width: 100%;
+    transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+  }
+  .login-button-span > button {
+    color: white;
+    font-weight: bold;
+    font-family: roboto;
+    background-color: #4caf50;
+    font-size: 18px;
+    margin-top: 30px;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px #fff;
+  }
+  .login-button-span > button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 0 5px #fff;
+    transform: translateY(4px);
+  }
+  .signup-button {
+    color: white;
+    font-weight: bold;
+    font-family: roboto;
+    background-color: #2196f3;
+    font-size: 15px;
+    padding: 10px;
+    width: 190px;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 2px;
   }
 }
