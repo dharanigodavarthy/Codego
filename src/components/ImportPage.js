@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -15,29 +16,45 @@ class ImportPage extends Component {
     super(props);
     this.state = {
       uploadedFile: "",
-      sideBarOpen: false
+      sideBarOpen: false,
+      errorStatus: ""
     };
   }
   handleFileRead = e => {
     const content = ImportPage.fileReader.result;
     this.props.actions.storeJSFile(content);
-    this.setState({ uploadedFile: content });
+    this.setState({
+      uploadedFile: content,
+      errorStatus: ""
+    });
   };
 
   handleFileChoosen = file => {
-    let typeOfFile=file.name.toLowerCase();
-    console.log(typeOfFile,typeOfFile.endsWith(".js")||typeOfFile.endsWith(".html")||typeOfFile.endsWith(".css"));
-    ImportPage.fileReader = new FileReader();
-    ImportPage.fileReader.onloadend = this.handleFileRead;
-    ImportPage.fileReader.readAsText(file);
+    let typeOfFile = file.name.toLowerCase();
+    if (typeOfFile.endsWith(".js")) typeOfFile = "js";
+    else if (typeOfFile.endsWith(".html")) typeOfFile = "html";
+    else if (typeOfFile.endsWith(".css")) typeOfFile = "css";
+    if (typeOfFile !== file.name.toLowerCase()) {
+      ImportPage.fileReader = new FileReader();
+      ImportPage.fileReader.onloadend = this.handleFileRead;
+      ImportPage.fileReader.readAsText(file);
+    } else {
+      this.setState({
+        errorStatus: "Oop's, codigo wont support files ends with "+typeOfFile.substr(typeOfFile.lastIndexOf("."))
+      });
+    }
   };
   toggleSideBar = () => {
     this.setState(prevState => {
-      return { sideBarOpen: !prevState.sideBarOpen };
+      return {
+        sideBarOpen: !prevState.sideBarOpen
+      };
     });
   };
   backDropClickHandler = () => {
-    this.setState({ sideBarOpen: false });
+    this.setState({
+      sideBarOpen: false
+    });
   };
   render() {
     let backdrop;
@@ -53,30 +70,31 @@ class ImportPage extends Component {
         {backdrop}
         <h1>use codigo to prettify your code</h1>
         <h2>upload file here</h2>
+
         <input
           type="file"
           id="file"
           className="input-file"
           accept=".js"
           onChange={e => this.handleFileChoosen(e.target.files[0])}
-        />
-        <p id="p_wrap" />
+        />{" "}
+        <p id="p_wrap" />{" "}
         {this.state.uploadedFile ? (
           ""
         ) : (
           <div id="banner">
-            <h2>Codigo, a app to prettify/Beautify code</h2>
-            <h3>see linting error from anywhere</h3>
+            <h2> Codigo, a app to prettify / Beautify code </h2>{" "}
+            <h3> see linting error from anywhere </h3>{" "}
           </div>
-        )}
+        )}{" "}
         {this.state.uploadedFile ? (
           <Link to="/prettify" className="prettify-link">
-            Prettify Code
+            Prettify Code{" "}
           </Link>
         ) : (
           ""
         )}
-        {/* {this.state.uploadedFile?<pre id="file-to-display">{this.state.uploadedFile}</pre>:""} */}
+        {this.state.errorStatus?this.state.errorStatus:""}
       </div>
     );
   }
@@ -84,6 +102,7 @@ class ImportPage extends Component {
 ImportPage.protoTypes = {
   storeJSFile: PropTypes.func.isRequired
 };
+
 function mapStateToProps(state, ownProps) {
   return {
     file: state.file
@@ -100,3 +119,6 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ImportPage);
+
+
+
