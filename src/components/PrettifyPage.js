@@ -134,12 +134,9 @@ class PrettifyPage extends Component {
           )}
         </div>
         <div className="prettified-button">
-          <div>
-            <button onClick={this.downloadFile}>Download file</button>
-          </div>
-          <div>
-            <button onClick={this.copyToClipBoard}>copy file</button>
-          </div>
+          <button onClick={this.downloadFile}>Download file</button>
+
+          <button onClick={this.copyToClipBoard}>copy file</button>
         </div>
         <NotificationContainer />
       </div>
