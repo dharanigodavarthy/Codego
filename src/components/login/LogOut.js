@@ -1,7 +1,4 @@
 import React from "react";
-// import SignIn from "./SignIn";
-// import SignUp from "./SignUp";
-// import SignUpLocal from "./SignUpLocal";
 import { Redirect } from "react-router-dom";
 
 class LogOut extends React.Component {
@@ -22,7 +19,7 @@ class LogOut extends React.Component {
       return <Redirect to ={"/"}/>
     return (
       <div>
-        <button className="logout-button" onClick={this.handleLogOut}>
+        <button className="nav_bar-logout" onClick={this.handleLogOut}>
           LogOut
         </button>
       </div>
