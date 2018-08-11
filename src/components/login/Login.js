@@ -1,9 +1,6 @@
 import React from "react";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
-// import SignUpLocal from "./SignUpLocal";
-// import '../css/login.css';
-// import background  from '../images/background.png';
 import { Redirect } from "react-router-dom";
 
 class Login extends React.Component {

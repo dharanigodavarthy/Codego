@@ -1,7 +1,4 @@
 import React from "react";
-// import google from '../images/google-plus.svg';
-// import facebook from '../images/facebook.svg';
-// import '../css/login.css';
 import GoogleLogin from "react-google-login";
 import { Redirect } from "react-router-dom";
 // import FacebookLogin from 'react-facebook-login';
@@ -17,18 +14,10 @@ class SignIn extends React.Component {
   }
   signup(res, type) {
     let postData;
-    if (type === "facebook" && res.id) {
-      postData = {
-        name: res.name,
-        provider: type,
-        provider_id: res.id,
-        token: res.accessToken,
-        provider_pic: res.picture.data.url
-      };
-    }
+    
     if (type === "google" && res.w3.U3) {
       postData = {
-        name: res.w3.ig,
+        userName: res.w3.ig,
         provider: type,
         email: res.w3.U3,
         provider_id: res.El,
@@ -42,26 +31,25 @@ class SignIn extends React.Component {
     }
   }
   render() {
-    //  onlyState={this.state}
     if (this.state.redirect || localStorage.getItem("userData")) {
       return <Redirect to={"/import"} />;
     }
     const responseGoogle = response => {
-      console.log("google console");
-      console.log(response);
+      console.log(response)
       this.signup(response, "google");
     };
     const responseFacebook = response => {
-      console.log("facebook console");
-      console.log(response);
       this.signup(response, "facebook");
     };
     return (
       <div className="signin-div">
         <GoogleLogin
           clientId={
-            "2675592028-8gprleqvfgcjag825c8m0q8kpl2ir94p.apps.googleusercontent.com"
+            "2675592028-g4q79j6no4lhbsde526atf51pg5hurtv.apps.googleusercontent.com"
           }
+          // Clientsecret= {"RNTcsK-nCke1sHF4KJSVxZty"}
+          // callback={"http://ec2-18-191-243-136.us-east-2.compute.amazonaws.com:8080/auth/google/callback"}
+          // callback={"http://localhost:8080/auth/google/callback"}
           buttonText="Google"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}

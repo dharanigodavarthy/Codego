@@ -1,8 +1,9 @@
 import React from "react";
-// import '../css/login.css';
 import { Redirect } from "react-router-dom";
 
 class SignUp extends React.Component {
+  
+  
   state = {
     userName: "",
     password: "",
@@ -21,7 +22,7 @@ class SignUp extends React.Component {
   userValidation(e) {
     console.log(this.state);
     console.log("login button is clicked!!");
-    fetch("/auth/users", {
+    fetch("/login", {
       method: "POST",
       body: JSON.stringify({ data: this.state }),
       headers: {
@@ -31,14 +32,13 @@ class SignUp extends React.Component {
       .then(response => response.json())
       .then(body => {
         console.log(body[0].userName);
-        console.log(this.state.userName);
         if (body[0].userName) {
-          this.setState({ redirect: true });
-          console.log(this.state);
-          localStorage.setItem(
+            console.log("inside login");
+            localStorage.setItem(
             "userData",
             JSON.stringify({ name: body[0].userName })
           );
+          this.setState({ redirect: true });
         }
       })
       .then(
@@ -52,8 +52,7 @@ class SignUp extends React.Component {
   render() {
     if (this.state.redirect) {
       console.log("inside redirect");
-
-      return <Redirect onlyState={this.state} to={"/levels"} />;
+      return (<Redirect to={"/import"} />);
     }
     return (
       <div className="user-login-div">
