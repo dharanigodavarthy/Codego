@@ -1,4 +1,4 @@
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 768px) {
   body {
     color: #e6e6e6;
     height: 100%;
@@ -220,17 +220,29 @@
   }
 
   .prettified-button {
-    display: flex;
     font-size: 20;
+    /* position: fixed; */
+    /* bottom: 0px;
+    right: 0px;  */
   }
   .prettified-button button {
-    flex: 1;
+    width: 50%;
     background-color: rgb(116, 166, 212);
     margin-top: 5px;
+    margin-bottom: 5px;
     padding: 10px;
     text-align: center;
     font-weight: bold;
     border: none;
-    border-radius: 2px;
+    
+    /* border-radius: 4px; */
+  }
+
+  .CodeMirror.cm-s-dracula.CodeMirror-wrap{
+    height: 550px;
+  }
+
+  .CodeMirror.cm-s-eclipse{
+    height: 600px;
   }
 }
