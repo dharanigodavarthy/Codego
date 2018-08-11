@@ -1,0 +1,61 @@
+.toggle-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.toggle_button_line:focus{
+    outline: none;
+}
+.toggle_button_line{
+    color: white;
+    width: 30px;
+    height: 2px;
+    background-color: white;
+}
+
+.side-bar{
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 60%;
+    max-width: 300px;
+    box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
+    z-index:200;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+}
+.side-bar.open{
+    transform: translateX(0);
+}
+.side-bar ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+}
+.side-bar li{
+    margin: 0.5rem 0;
+}
+.side-bar a{
+    color:#521751;
+    text-decoration: none;
+}
+
+.side-bar a:hover,
+.side-bar a:active{
+    color : #fa9237;
+}
+
+@media (min-width: 769px){
+    .side-bar {
+        display: none;
+    }
+}

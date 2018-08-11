@@ -1,0 +1,236 @@
+@media only screen and (max-width: 1024px) {
+  body {
+    color: #e6e6e6;
+    height: 100%;
+    margin: 0;
+    background-image: url("./assets/images/background-image.png");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: "Comfortaa", cursive;
+  }
+
+  .login-div {
+    margin: 30px;
+    text-align: center;
+  }
+
+  .login-div > h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+  }
+
+  .user-login-div {
+    margin: 20px;
+    padding: 20px;
+  }
+  .input-div {
+    display: grid;
+    justify-items: center;
+  }
+  .styled-input > input:focus ~ label,
+  .styled-input > input:valid ~ label {
+    font-size: 0.75em;
+    color: #ffffff;
+    top: -2.25rem;
+    transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+  }
+
+  .styled-input {
+    float: left;
+    width: 75%;
+    margin: 2rem 0 1rem;
+    position: relative;
+  }
+  .styled-input label {
+    color: #e6e6e6;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.25s cubic-bezier(0.2, 0, 0.03, 1);
+    pointer-events: none;
+  }
+
+  .styled-input > input {
+    background-color: transparent;
+    padding: 1rem 0rem;
+    border: none;
+    color: white;
+    border-bottom: 2px solid white;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 1rem;
+  }
+  .styled-input > input ~ span {
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #8e44ad;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+  }
+  .styled-input > input:focus {
+    outline: 0;
+  }
+  .styled-input > input:focus ~ span {
+    width: 100%;
+    transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+  }
+  .login-button-span > button {
+    color: white;
+    font-weight: bold;
+    font-family: roboto;
+    background-color: #4caf50;
+    font-size: 18px;
+    margin-top: 30px;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px #fff;
+  }
+  .login-button-span > button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 0 5px #fff;
+    transform: translateY(4px);
+  }
+  .signup-button {
+    color: white;
+    font-weight: bold;
+    font-family: roboto;
+    background-color: #2196f3;
+    font-size: 15px;
+    padding: 10px;
+    width: 190px;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+  }
+
+  .logout-button {
+    padding: 0;
+    background-color: Transparent;
+    color: #521751;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+  }
+
+  .page-not-found-div {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+  }
+
+  .home-div h1 {
+    font-variant: small-caps;
+    text-align: center;
+  }
+  .home-body-div {
+    margin: 50px 0;
+  }
+
+  .card-div {
+    margin: auto;
+    padding-bottom: 75px;
+    padding-top: 40px;
+    font-weight: bold;
+    width: 75%;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    text-align: center;
+    text-transform: capitalize;
+    opacity: 0.9;
+    box-shadow: 0px 0px 10px #fff;
+  }
+  .import-btn-wrapper {
+    margin: 50px;
+    position: relative;
+    overflow: hidden;
+    /* display: inline-block; */
+  }
+
+  .btn {
+    border: none;
+    color: #4d4d4d;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+  }
+
+  .import-btn-wrapper input[type="file"] {
+    font-size: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .error-div {
+    margin-top: 50px;
+    line-height: 30px;
+    color: red;
+  }
+
+  .prettify-div {
+    margin-top: 50px;
+    color: #0099cc;
+  }
+
+  .prettify-div a {
+    background-color: #3e8e41;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+  }
+
+  .nav-header {
+    display: flex;
+    font-size: 20;
+  }
+
+  .nav-header div {
+    background-color: rgb(100, 99, 99);
+    padding: 10px;
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .nav-header a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+  }
+
+  .prettified-button {
+    display: flex;
+    font-size: 20;
+  }
+  .prettified-button button {
+    flex: 1;
+    background-color: rgb(116, 166, 212);
+    margin-top: 5px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
+  }
+}
