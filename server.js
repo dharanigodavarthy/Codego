@@ -38,20 +38,19 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve("index.html"));
 });
 
-
-app.post("/login",(req,res)=>{
-    console.log("database");
-   console.log(req.body.data.userName);
-   User.find({emailId:req.body.data.userName},(err,data)=>{
-       console.log("in server post request"+data);
-       res.json(data)
-   })
-})
+app.post("/login", (req, res) => {
+  console.log("database");
+  console.log(req.body.data.userName);
+  User.find({ emailId: req.body.data.userName }, (err, data) => {
+    console.log("in server post request" + data);
+    if (data) res.json(data);
+    else res.json("notMatch");
+  });
+});
 
 // Adding user to the database
 
 app.post("/signup", (req, res) => {
-
   let data = req.body.data;
   var hashedPassword = passwordHash.generate(data.password);
   console.log(hashedPassword);
@@ -76,4 +75,4 @@ app.use((req, res) => {
   });
 });
 
-app.listen(8081, () => console.log("server running at 8080"));
+app.listen(8081, () => console.log("server running at 8081"));
