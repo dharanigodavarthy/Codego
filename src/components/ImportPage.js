@@ -22,7 +22,7 @@ class ImportPage extends Component {
     };
   }
   componentDidMount() {
-    localStorage.clear();
+    localStorage.setItem("data", "");
   }
   handleFileRead = e => {
     const content = ImportPage.fileReader.result;

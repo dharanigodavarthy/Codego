@@ -2,8 +2,6 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 class SignUp extends React.Component {
-  
-  
   state = {
     userName: "",
     password: "",
@@ -33,8 +31,8 @@ class SignUp extends React.Component {
       .then(body => {
         console.log(body[0].userName);
         if (body[0].userName) {
-            console.log("inside login");
-            localStorage.setItem(
+          console.log("inside login");
+          localStorage.setItem(
             "userData",
             JSON.stringify({ name: body[0].userName })
           );
@@ -52,7 +50,7 @@ class SignUp extends React.Component {
   render() {
     if (this.state.redirect) {
       console.log("inside redirect");
-      return (<Redirect to={"/import"} />);
+      return <Redirect to={"/import"} />;
     }
     return (
       <div className="user-login-div">
@@ -82,7 +80,7 @@ class SignUp extends React.Component {
           </div>
 
           <div>
-            <span className="login-button-span">
+            <span className="button-span">
               <button onClick={this.userValidation.bind(this)}>Login</button>
             </span>
           </div>
